@@ -107,7 +107,7 @@ python manage.py collectstatic --noinput
 ### 7️⃣ Create Gunicorn Service
 
 ```bash
-sudo nano /etc/systemd/system/gunicorn.service
+sudo nano /etc/systemd/system/gunicorn-yourproject.service
 ```
 
 ```ini
@@ -129,9 +129,9 @@ WantedBy=multi-user.target
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl start gunicorn
-sudo systemctl enable gunicorn
-sudo systemctl status gunicorn  # Check status
+sudo systemctl start gunicorn-yourproject
+sudo systemctl enable gunicorn-yourproject
+sudo systemctl status gunicorn-yourproject  # Check status
 ```
 
 ### 9️⃣ Configure Nginx
