@@ -8,7 +8,6 @@
 
 - 🧩 [Frontend Resources](./frontend/FRONTEND.md)
 - 🔧 [Backend Resources](./backend/BACKEND.md)
-  - ⚙️ [Django Deployment Guide](./backend/DJANGO_DEPLOYMENT_GUIDE.md)
 - 🤝 [Contributing](./docs/CONTRIBUTING.md)
 
 ---
@@ -50,7 +49,7 @@ Maintained by **Krishna**
 
 - 💼 Fullstack (MERN + Django) Developer
 - 🧠 Self-taught | Passionate about clean deployments and reusable setups
-- 📧 [YourEmail@example.com](mailto:krishakumarps@gmail.com)
+- 📧 [krishakumarps@gmail.com](mailto:krishakumarps@gmail.com)
 
 ---
 
