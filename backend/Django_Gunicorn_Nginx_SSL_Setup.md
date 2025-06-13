@@ -78,9 +78,9 @@ pip install -r requirements.txt
 
 ```Check Port Availability 🔍
 
-Check All Listening Ports - sudo netstat -tuln
+Check All Listening Ports:  sudo netstat -tuln
 
-Check Specific Port (e.g., 8001) - sudo lsof -i :8001
+Check Specific Port (e.g., 8001):  sudo lsof -i :8001
 
 🚀 Run Gunicorn on Available Port
 gunicorn --bind 127.0.0.1:8001 yourproject.wsgi:application
