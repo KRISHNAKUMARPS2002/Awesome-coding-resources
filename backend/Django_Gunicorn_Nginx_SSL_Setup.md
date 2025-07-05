@@ -223,6 +223,9 @@ python manage.py migrate
 # Collect static files (if changed)
 python manage.py collectstatic --noinput
 
+# Check Gunicorn service status
+systemctl | grep gunicorn
+
 # Restart Gunicorn
 sudo systemctl restart gunicorn
 
