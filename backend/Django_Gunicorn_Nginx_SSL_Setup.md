@@ -226,6 +226,9 @@ python manage.py collectstatic --noinput
 # Check Gunicorn service status
 systemctl | grep gunicorn
 
+# Check the Gunicorn service name of your project
+grep -Ri "your-project" /etc/systemd/system/
+
 # Restart Gunicorn
 sudo systemctl restart gunicorn
 
