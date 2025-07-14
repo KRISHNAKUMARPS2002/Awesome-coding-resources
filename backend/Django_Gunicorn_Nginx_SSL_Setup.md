@@ -259,6 +259,9 @@ sudo nginx -t
 # Check if port 8001 is being used
 sudo netstat -tulpn | grep :8001
 
+# Restart current gunicorn service
+sudo systemctl restart your-app.service
+
 # Restart all services
 sudo systemctl restart gunicorn nginx
 ```
