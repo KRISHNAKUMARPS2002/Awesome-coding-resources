@@ -1,178 +1,83 @@
-# SQL USEFULL QUERIES CHEAT SHEET
+# SQL USEFUL QUERIES CHEAT SHEET
 
-🛠 DATABASE OPERATIONS
+## 📁 Database Operations
 
--- Create a new database
+### 🏗️ To create a database
+
+```sql
 CREATE DATABASE db_name;
+```
 
--- Use a database
+### 📂 To use a database
+
+```sql
 USE db_name;
+```
 
--- Show all databases
-SHOW DATABASES;
+### 🧱 To create a table
 
--- Delete a database
-DROP DATABASE db_name;
-🧱 TABLE OPERATIONS
-sql
-Copy
-Edit
--- Create a table
+```sql
 CREATE TABLE users (
-id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(100),
-email VARCHAR(100),
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    city VARCHAR(100)
+)
+```
 
--- Show all tables
-SHOW TABLES;
+### 📃 To list available tables
 
--- Describe table structure
-DESCRIBE users;
+```sql
+SELECT * FROM SYS.SYSTABLE;
+```
 
--- Drop a table
-DROP TABLE users;
+### 📅 To select a table
 
--- Rename a table
-RENAME TABLE old_name TO new_name;
+```sql
+SELECT * FROM users;
+```
 
--- Add a column
-ALTER TABLE users ADD age INT;
+### 🔢 Count rows
 
--- Modify a column
-ALTER TABLE users MODIFY age VARCHAR(10);
+````sql
+SELECT COUNT(*) FROM users;
+```
+### Grouping
 
--- Drop a column
-ALTER TABLE users DROP COLUMN age;
+```sql
+SELECT city, COUNT(*) FROM users GROUP BY city;
+```
 
-📥 INSERT DATA
+### 🔍 Apply WHERE clause
 
--- Insert one row
-INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com');
+```sql
+SELECT * FROM users WHERE city = 'TVM';
+````
 
--- Insert multiple rows
-INSERT INTO users (name, email) VALUES
-('Alice', 'alice@example.com'),
-('Bob', 'bob@example.com');
+### 💾 Filter with conditions
 
-📤 SELECT DATA
+```sql
+SELECT * FROM orders WHERE order_date BETWEEN 'YYYY-MM-DD' AND 'YYYY-MM-DD';
+```
 
--- Select all columns
-SELECT \* FROM users;
+```sql
+SELECT * FROM orders WHERE order_date >= 'YYYY-MM-DD' AND order_date <= 'YYYY-MM-DD';
+```
 
--- Select specific columns
-SELECT name, email FROM users;
+#### To check fields start with a letter
 
--- With WHERE condition
-SELECT \* FROM users WHERE name = 'Alice';
+```sql
+SELECT * FROM users WHERE name LIKE 'A%';
+```
 
--- Pattern matching
-SELECT \* FROM users WHERE name LIKE '%oh%';
+#### To check flieds end with a letter
 
--- Order by column
-SELECT \* FROM users ORDER BY name ASC;
+```sql
+SELECT * FROM users WHERE name LIKE '%n';
+```
 
--- Limit results
-SELECT \* FROM users LIMIT 10;
+#### To check fields the letter anywhere in the data
 
--- Select unique values
-SELECT DISTINCT city FROM users;
-
-✏️ UPDATE DATA
-
--- Update a record
-UPDATE users SET name = 'Jane Doe' WHERE id = 1;
-
--- Update multiple fields
-UPDATE users SET name = 'Jane', age = 25 WHERE email = 'jane@example.com';
-
-❌ DELETE DATA
-
--- Delete specific record
-DELETE FROM users WHERE id = 5;
-
--- Delete all records (use with caution)
-DELETE FROM users;
-
-🔗 JOINS
--- INNER JOIN
-SELECT orders.id, users.name
-FROM orders
-INNER JOIN users ON orders.user_id = users.id;
-
--- LEFT JOIN
-SELECT users.name, orders.product
-FROM users
-LEFT JOIN orders ON users.id = orders.user_id;
-
--- RIGHT JOIN
-SELECT users.name, orders.product
-FROM users
-RIGHT JOIN orders ON users.id = orders.user_id;
-
-📊 GROUPING & AGGREGATION
-
--- Count
-SELECT COUNT(\*) FROM users;
-
--- Sum
-SELECT SUM(amount) FROM payments;
-
--- Average
-SELECT AVG(age) FROM users;
-
--- Min / Max
-SELECT MIN(age), MAX(age) FROM users;
-
--- Group by with count
-SELECT city, COUNT(\*) FROM users GROUP BY city;
-
--- Group by with condition (HAVING)
-SELECT city, COUNT(\_) as total FROM users GROUP BY city HAVING total > 5;
-
-🔍 ADVANCED FILTERING
-
--- IN
-SELECT \_ FROM users WHERE city IN ('Mumbai', 'Delhi');
-
--- BETWEEN
-SELECT \* FROM orders WHERE order_date BETWEEN '2024-01-01' AND '2024-12-31';
-
--- IS NULL / IS NOT NULL
-SELECT \* FROM users WHERE phone IS NULL;
-
--- EXISTS
-SELECT \_ FROM users WHERE EXISTS (
-SELECT 1 FROM orders WHERE users.id = orders.user_id
-);
-
-🧪 SUBQUERIES
-
--- Subquery in SELECT
-SELECT name, (SELECT COUNT(\_) FROM orders WHERE user_id = users.id) AS total_orders
-FROM users;
-
--- Subquery in WHERE
-SELECT name FROM users WHERE id IN (
-SELECT user_id FROM orders WHERE amount > 500
-);
-
-🧰 INDEXING & PERFORMANCE
-
--- Create an index
-CREATE INDEX idx_email ON users(email);
-
--- Drop an index
-DROP INDEX idx_email ON users;
-
-🔒 USER & PRIVILEGES (MySQL)
-
--- Create a new user
-CREATE USER 'dev'@'localhost' IDENTIFIED BY 'password';
-
--- Grant privileges
-GRANT ALL PRIVILEGES ON db_name.\* TO 'dev'@'localhost';
-
--- Apply changes
-FLUSH PRIVILEGES;
+```sql
+SELECT * FROM users WHERE name LIKE '%great%';
+```
