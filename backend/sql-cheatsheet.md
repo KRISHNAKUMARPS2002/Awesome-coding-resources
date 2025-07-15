@@ -22,7 +22,7 @@ CREATE TABLE users (
     name VARCHAR(100),
     email VARCHAR(100),
     city VARCHAR(100)
-)
+);
 ```
 
 ### 📃 To list available tables
