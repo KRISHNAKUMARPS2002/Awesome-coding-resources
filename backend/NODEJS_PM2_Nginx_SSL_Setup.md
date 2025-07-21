@@ -152,6 +152,10 @@ sudo apt install certbot python3-certbot-nginx -y
 # Obtain SSL certificate
 sudo certbot --nginx -d your-domain.com -d www.your-domain.com
 
+# Obtain SSL certificate for subdomain
+sudo certbot --nginx -d subdomain.maindomain.com
+
+
 # Test automatic renewal
 sudo certbot renew --dry-run
 ```
